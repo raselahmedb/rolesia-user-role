@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: ROLESIA-USER-ROSE
+  jpa:
+    hibernate:
+      ddlAuto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rolesia
+    username: postgres
+    password: postgres
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: your-clientId
+            clientSecret: your-Secret
+            scope: profile, email
+
+app:
+  jwt:
+    # Signing key for HS512 algorithm
+    # In https://acte.ltd/utils/randomkeygen you can generate all kinds of keys
+    secret: )1ece*=B,Ux+6`qai)k=9L*6aV|-N:Gu-gBOZESYFtHWEXMXKPqlC5EZuhU8znCG9
+    expiration:
+      minutes: 10
+  oauth2:
+    redirectUri: http://localhost:3000/oauth2/redirect
+  cors:
+    allowed-origins: http://localhost:3000
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    # org.hibernate.SQL: DEBUG
